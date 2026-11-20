@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      .article {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Blog</h1>
+    <form action="/search" method="POST">
+      キーワード検索:<input type="text" name="searchWord" required/><br />
+      <button type="submit">検索</button>
+    </form>
+
+    <h1>新しい記事を投稿</h1>
+    <form action="/" method="POST">
+      タイトル:<input type="text" name="title" required /><br />
+      投稿日:<input type="date" name="date" required /><br />
+      本文:<textarea name="article" required></textarea><br />
+      <button type="submit">投稿</button>
+    </form>
+  
+    <% blog.forEach(post => { %>
+      <div class="article">
+        <h2><%= post.title %></h2>
+        <p>投稿日：<%= post.date.toISOString().slice(0, 10) %></p>
+        <p><%= post.article %></p>
+      </div>
+    <% }) %>
+
+  </body>
+</html>
