@@ -11,6 +11,6 @@ module.exports = defineConfig({
   engine: "classic",
 
   datasource: {
-    url: prosess.env.DATABASE_URL ?? "",
+    url: process.env.DATABASE_URL ?? "",
   },
 });
